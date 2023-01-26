@@ -33,37 +33,23 @@ class StoryBrain {
         choice2: '')
   ];
 
-//Step 16 - Create a property called storyNumber which starts with a value of 0.
-// This will be used to track which story the user is currently viewing.
+//storyNumber fängt bei 0 um zu folgen bei welcher Story wir sind
   int _storyNumber = 0;
 
-//Step 8 - Create a method called getStory() that returns the first storyTitle from _storyData.
-
-//Step 23 - Use the storyNumber property inside getStory(), getChoice1() and getChoice2()
-// so that it gets the updated story and choices rather than always just the first (0th) one.
   String getStory() {
     return _storyData[_storyNumber].storyTitle;
   }
 
-//Step 11 - Create a method called getChoice1() that returns the text for
-// the first choice1 from _storyData.
   String getChoice1() {
     return _storyData[_storyNumber].choice1;
   }
 
-//Step 12 - Create a method called getChoice2() that returns the text for
-// the first choice2 from _storyData.
   String getChoice2() {
     return _storyData[_storyNumber].choice2;
   }
 
-//Step 17 - Create a method called nextStory(),
-// it should not have any outputs but it should have 1 input called choiceNumber
-// which will be the choice number (int) made by the user.
-
-//Step 21 - Using the story plan, update nextStory() to change
-// the storyNumber depending on the choice made by the user. e.g.
-// if choiceNumber was equal to 1 and the storyNumber is 0, the storyNumber should become 2.
+// Stories werden in der Reihenfolge des Plans gezeigt,
+// plan wurde auch mit hochgeladen auf dem github repo
   void nextStory(choiceNumber) {
     if (choiceNumber == 1 && _storyNumber == 0) {
       _storyNumber = 2;
@@ -82,16 +68,14 @@ class StoryBrain {
     }
   }
 
-// Step 22 - In nextStory() if the storyNumber is equal to 3 or 4 or 5,
-// that means it's the end of the game and it should call a method called restart()
-// that resets the storyNumber to 0.
+//resets the storyNumber auf 0.
   void restart() {
     _storyNumber = 0;
   }
 
-//Step 27 - Create a method called buttonShouldBeVisible() which checks to see
-// if storyNumber is 0 or 1 or 2 (when both buttons should show choices)
-// and return true if that is the case, else it should return false.
+// wenn storyNumber ist 0, 1 oder 2 gibt true
+//  else ist false, damit zum schluss ein btn unsichtbar gemacht wird
+
   bool buttonShouldBeVisible() {
     if (_storyNumber == 0 || _storyNumber == 1 || _storyNumber == 2) {
       return true;

@@ -12,7 +12,7 @@ class Destini extends StatelessWidget {
   }
 }
 
-//Step 9 - Create a new storyBrain object from the StoryBrain class.
+//StoryBrain objekt erstellen
 StoryBrain storyBrain = StoryBrain();
 
 class StoryPage extends StatefulWidget {
@@ -39,8 +39,7 @@ class _StoryPageState extends State<StoryPage> {
                 flex: 12,
                 child: Center(
                   child: Text(
-                    //Step 10 - use the storyBrain to get the first story title and
-                    // display it in this Text Widget.
+                    // erste story holen und anzeigen
                     storyBrain.getStory(),
                     //'Story text will go here.',
                     style: TextStyle(
@@ -56,16 +55,15 @@ class _StoryPageState extends State<StoryPage> {
                     backgroundColor: Colors.red, // Background Color
                   ),
                   onPressed: () {
-                    //Choice 1 made by user.
+                    //benutzer wählt 1 aus
 
-                    //Step 18 - Call the nextStory() method from storyBrain and
-                    // pass the number 1 as the choice made by the user.
+                    // nextStory() um die nächste Story zu holen
                     setState(() {
                       storyBrain.nextStory(1);
                     });
                   },
                   child: Text(
-                    //Step 13 - Use the storyBrain to get the text for choice 1.
+                    //um die erste Auswahl zu bekommen
                     storyBrain.getChoice1(),
                     style: TextStyle(fontSize: 20.0, color: Colors.white),
                   ),
@@ -76,9 +74,8 @@ class _StoryPageState extends State<StoryPage> {
               ),
               Expanded(
                 flex: 2,
-                //Step 26 - Use a Flutter Visibility Widget to wrap this FlatButton.
-                //Step 28 - Set the "visible" property of the Visibility Widget to equal
-                // the output from the buttonShouldBeVisible() method in the storyBrain.
+                //Flutter Visibility Widget um den btn unsichtbar zu machen
+                //an hand der methode buttonShouldBeVisible()
                 child: Visibility(
                   visible: storyBrain.buttonShouldBeVisible(),
                   child: TextButton(
@@ -86,15 +83,14 @@ class _StoryPageState extends State<StoryPage> {
                       backgroundColor: Colors.blue, // Background Color
                     ),
                     onPressed: () {
-                      //Choice 2 made by user.
-                      //Step 19 - Call the nextStory() method from storyBrain and pass
-                      //the number 2 as the choice made by the user.
+                      //benutzer wählt 2 aus
+
                       setState(() {
                         storyBrain.nextStory(2);
                       });
                     },
                     child: Text(
-                      //Step 14 - Use the storyBrain to get the text for choice 2.
+                      //um die zweite Auswahl zu zeigen
                       storyBrain.getChoice2(),
                       style: TextStyle(fontSize: 20.0, color: Colors.white),
                     ),
